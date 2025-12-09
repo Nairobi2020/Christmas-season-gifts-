@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christmas Gift Membership Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+    .modal {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0; left: 0;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    .modal-content {
+        background: white;
+        width: 100%;
+        max-width: 430px;
+        padding: 20px 18px;
+        border-radius: 14px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(10px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    h2 {
+        text-align: center;
+        color: #222;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    label {
+        display: block;
+        margin: 12px 0 5px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        box-sizing: border-box;
+        background: #fafafa;
+    }
+    textarea {
+        resize: none;
+    }
+    button {
+        width: 100%;
+        padding: 14px;
+        background: #0077cc;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 12px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    button:hover {
+        background: #005fa3;
+    }
+    @media (max-width: 480px) {
+        .modal-content {
+            padding: 15px;
+            border-radius: 10px;
+        }
+        h2 {
+            font-size: 18px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="modal">
+    <div class="modal-content">
+        <h2>Christmas Gift Membership Form</h2>
+
+        <form action="mailto:theartistbureau.com@gmail.com" method="POST" enctype="text/plain">
+
+            <label>Full Name</label>
+            <input type="text" name="Full Name" required>
+
+            <label>Location</label>
+            <input type="text" name="Location" required>
+
+            <label>Email</label>
+            <input type="email" name="Email" required>
+
+            <label>Phone Number</label>
+            <input type="text" name="Phone Number" required>
+
+            <label>Do You Have a Membership Card?</label>
+            <select name="Has Membership Card" id="hasCard" required onchange="toggleCardFields()">
+                <option value="">-- Select Option --</option>
+                <option value="Yes">Yes, I Have One</option>
+                <option value="No">No, I Don't Have</option>
+            </select>
+
+            <div id="cardFields" style="display:none;">
+                <label>Type of Membership Card</label>
+                <select name="Card Type">
+                    <option value="">-- Select Card Type --</option>
+                    <option value="VIP ($3000)">VIP ($3000)</option>
+                    <option value="Premium ($5000)">Premium ($5000)</option>
+                </select>
+
+                <label>Membership Card ID Number</label>
+                <input type="text" name="Card ID">
+            </div>
+
+            <label>Choose Membership Package (If You Want to Buy One)</label>
+            <select name="Membership Package">
+                <option value="">-- Select Package --</option>
+                <option value="VIP ($3000)">VIP ($3000)</option>
+                <option value="Premium ($5000)">Premium ($5000)</option>
+            </select>
+
+            <label>Why Do You Want to Receive the Christmas Gift?</label>
+            <textarea name="Reason" rows="4"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function toggleCardFields() {
+    const hasCard = document.getElementById('hasCard').value;
+    const cardFields = document.getElementById('cardFields');
+    cardFields.style.display = hasCard === "Yes" ? "block" : "none";
+}
+</script>
+
+</body>
+</html>
